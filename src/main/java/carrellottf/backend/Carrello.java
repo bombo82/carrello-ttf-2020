@@ -1,29 +1,31 @@
 package carrellottf.backend;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Carrello {
-	private Map<Prodotto, Integer> prodotti = new HashMap<>();
+    private Map<Prodotto, Integer> prodotti = new HashMap<>();
 
-	public Carrello() {
-		add(ProdottoRepository.getInstance().getProdotto(1),2);
-		add(ProdottoRepository.getInstance().getProdotto(2),4);
-	}
-	
-	public Set<Prodotto> getProdotti() {
-		return prodotti.keySet();
-	}
+    public Carrello() {
+        add(ProdottoRepository.getInstance().getProdotto(1), 2);
+        add(ProdottoRepository.getInstance().getProdotto(2), 4);
+    }
 
-	public int getQty(Prodotto p) {
-		return prodotti.containsKey(p) ? prodotti.get(p) : 0;
-	}
+    public Set<Prodotto> getProdotti() {
+        return prodotti.keySet();
+    }
 
-	public void remove(Prodotto p) {
-		prodotti.remove(p);
-	}
+    public int getQty(Prodotto p) {
+        return prodotti.containsKey(p) ? prodotti.get(p) : 0;
+    }
 
-	public void add(Prodotto p, int qty) {
-		prodotti.put(p, getQty(p) + qty);
-	}
+    public void remove(Prodotto p) {
+        prodotti.remove(p);
+    }
+
+    public void add(Prodotto p, int qty) {
+        prodotti.put(p, getQty(p) + qty);
+    }
 
 }

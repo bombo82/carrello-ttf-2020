@@ -10,11 +10,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-	private String login=null, pw;
-	private String name;
+    private String login = null, pw;
+    private String name;
 
-	public String toString() {
-		return name + "(" + login + ":" + pw + ")";
-	}
-	
+    public String toString() {
+        return name + "(" + login + ":" + pw + ")";
+    }
+
 }
