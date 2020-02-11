@@ -1,4 +1,8 @@
 node{
+  env.DOCKER_HOME = "${tool 'docker'}"
+  env.PATH="${env.DOCKER_HOME}/bin:${env.PATH}"
+
+
   stage ('Checkout') {
     checkout scm
   }
@@ -13,6 +17,7 @@ node{
   }
 
   stage ('Delivery') {
-    docker.build("carrello-ttf:${env.BUILD_ID}")
+    tool 'docker'
+    sh "docker -H tcp://192.168.50.95:2375 image build -t carrello-ttf:${env.BUILD_ID} ."
   }
 }
