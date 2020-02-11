@@ -11,4 +11,8 @@ node{
 
     }
   }
+
+  stage ('Delivery') {
+    docker.build("carrello-ttf:${env.BUILD_ID}")
+  }
 }
